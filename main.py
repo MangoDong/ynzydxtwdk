@@ -208,18 +208,18 @@ def main():
 
 
 if __name__ == "__main__":
-    # print("⏲ 请输入定时时间（默认每天7:05）")
-    # hour = input("\thour: ") or 7
-    # minute = input("\tminute: ") or 5
-    # scheduler = BlockingScheduler(timezone='Asia/Shanghai')
-    # scheduler.add_job(main, 'cron', hour=hour, minute=minute)  # args=[],  这里使用的是个人账号
-    # print('⏰ 已启动定时程序，每天 %02d:%02d 为您打卡' % (int(hour), int(minute)))
-    # print('Press Ctrl+{0} to exit'.format('Break' if os.name == 'nt' else 'C'))
-    # try:
-    #     scheduler.start()
-    # except (KeyboardInterrupt, SystemExit):
-    #     pass
-    main()
+    print("⏲ 请输入定时时间（默认每天7:05）")
+    hour = input("\thour: ") or 7
+    minute = input("\tminute: ") or 5
+    scheduler = BlockingScheduler(timezone='Asia/Shanghai')
+    scheduler.add_job(main, 'cron', hour=hour, minute=minute)  # args=[],  这里使用的是个人账号
+    print('⏰ 已启动定时程序，每天 %02d:%02d 为您打卡' % (int(hour), int(minute)))
+    print('Press Ctrl+{0} to exit'.format('Break' if os.name == 'nt' else 'C'))
+    try:
+        scheduler.start()
+    except (KeyboardInterrupt, SystemExit):
+        pass
+    #main()
 
 
 def main_handler(event, context):
